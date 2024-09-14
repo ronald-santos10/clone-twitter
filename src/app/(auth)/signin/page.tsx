@@ -2,7 +2,7 @@ import { SigninForm } from "@/components/auth/signin-form";
 import { Logo } from "@/components/ui/logo";
 import Link from "next/link";
 
-export default function Signin() {
+export default function Page() {
   return (
     <div className="max-w-md mx-auto mt-24 flex flex-col gap-8 px-4">
       <Logo size={56} />
