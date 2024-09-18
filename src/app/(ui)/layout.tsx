@@ -20,7 +20,7 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <main className="min-h-screen flex justify-center mx-auto max-w-7xl">
-      <section className="hidden lg:flex flex-col sticky top-0 h-screen w-72 px-3 border-r-2 border-zinc-900">
+      <section className="hidden lg:flex flex-col sticky top-0 h-screen w-72 px-6 border-r-2 border-zinc-900">
         <div className="flex-1 flex flex-col gap-11 mt-6">
           <Logo size={24} />
           <nav>
@@ -38,8 +38,8 @@ export default function Layout({ children }: Props) {
           <NavMyProfile />
         </div>
       </section>
-      <section className="flex-1 max-w-lg">{children}</section>
-      <aside className="hidden lg:flex flex-col gap-6 sticky top-0 h-fit w-96 px-8 py-6 border-l-2 border-zinc-900">
+      <section className="flex-1 max-w-xl">{children}</section>
+      <aside className="hidden lg:flex flex-col gap-6 sticky top-0 h-fit w-96 px-6 py-6 border-l-2 border-zinc-900">
         <SearchInput hideOnSearch />
         <TrendingArea />
         <RecommendationArea />
