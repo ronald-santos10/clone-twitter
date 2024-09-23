@@ -14,9 +14,10 @@ import { useState } from "react";
 
 type Props = {
   tweet: Tweet;
+  hideComments?: boolean;
 };
 
-export const Tweetitem = ({ tweet }: Props) => {
+export const Tweetitem = ({ tweet, hideComments }: Props) => {
   const [liked, setLiked] = useState(tweet.liked);
 
   const handleLikeButton = () => {
@@ -43,21 +44,25 @@ export const Tweetitem = ({ tweet }: Props) => {
             @{user.slug} - {formatRelativeTime(tweet.dataPost)}
           </span>
         </div>
-        <div>{tweet.body}</div>
+        <Link href={`/tweet/${tweet.id}`}>
+          <div>{tweet.body}</div>
+        </Link>
         <img
           src={tweet.image}
           alt={tweet.body}
           className="rounded-2xl w-full"
         />
         <div className="flex text-zinc-500 gap-10">
-          <div>
-            <Link href={`/tweet/${tweet.id}`}>
-              <div className="inline-flex items-center gap-2 cursor-pointer">
-                <FontAwesomeIcon icon={faComment} className="size-6" />
-                <span>{tweet.commentCount}</span>
-              </div>
-            </Link>
-          </div>
+          {!hideComments && (
+            <div>
+              <Link href={`/tweet/${tweet.id}`}>
+                <div className="inline-flex items-center gap-2 cursor-pointer">
+                  <FontAwesomeIcon icon={faComment} className="size-6" />
+                  <span>{tweet.commentCount}</span>
+                </div>
+              </Link>
+            </div>
+          )}
           <div>
             <div className="inline-flex items-center gap-2 cursor-pointer">
               <FontAwesomeIcon icon={faRetweet} className="size-6" />
