@@ -17,7 +17,7 @@ export const SearchInput = ({ deafultValue, hideOnSearch }: Props) => {
 
   const handerSearchEnter = () => {
     if (searchInput) {
-      router.push("/search?q=" + encodeURIComponent(searchInput));
+      router.push(`/search?q=${encodeURIComponent(searchInput)}`);
     }
   };
 

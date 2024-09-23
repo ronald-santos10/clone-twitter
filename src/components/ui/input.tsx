@@ -25,8 +25,8 @@ export const Input = ({
 }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleKeyup = (event: KeyboardEvent<HTMLInputElement>) => {
-    if (event.code.toLowerCase() === "enter" && onEnter) {
+  const handleKeyup = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key.toLowerCase() === "enter" && onEnter) {
       onEnter();
     }
   };
@@ -45,7 +45,7 @@ export const Input = ({
         className="flex-1 outline-none bg-transparent h-full px-4"
         placeholder={placeholder}
         value={value}
-        onChange={(e) => onChange && onChange(e.target.value)}
+        onChange={(e) => onChange?.(e.target.value)}
         onKeyUp={handleKeyup}
       />
       {password && (

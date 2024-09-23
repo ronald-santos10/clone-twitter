@@ -8,7 +8,7 @@ type Props = {
 export const TrendingItem = ({ label, count }: Props) => {
   return (
     <div>
-      <Link href={"/search?q=" + encodeURIComponent(label)}>
+      <Link href={`/search?q=${encodeURIComponent(label)}`}>
         <span className="text-lg block truncate hover:underline">#{label}</span>
         <span className="text-sm text-zinc-300">{count} posts</span>
       </Link>
